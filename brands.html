@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Featured Brands — Sandstorm Group</title>
-  <meta name="description" content="The brands Sandstorm Group represents are hand-picked for quality. See who we work with — and how your brand could be featured here.">
-  <meta property="og:title" content="Featured Brands — Sandstorm Group">
-  <meta property="og:description" content="The brands Sandstorm Group represents are hand-picked for quality. See who we work with — and how your brand could be featured here.">
-  <meta property="og:image" content="assets/img/hero-poster.jpg">
+  <title>Featured Brands | Sandstorm Group</title>
+  <meta name="description" content="The shortlist of brands Sandstorm Group represents, and how yours could join it.">
+  <link rel="canonical" href="https://www.sandstormgroup.co.za/brands.html">
+  <meta property="og:title" content="Featured Brands | Sandstorm Group">
+  <meta property="og:description" content="The shortlist of brands Sandstorm Group represents, and how yours could join it.">
+  <meta property="og:image" content="https://www.sandstormgroup.co.za/assets/img/hero-poster.jpg">
+  <meta property="og:url" content="https://www.sandstormgroup.co.za/brands.html">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#0D0D0D">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
@@ -16,8 +18,16 @@
   <link rel="preload" href="assets/fonts/montserrat-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/main.css">
+  <script>try{if(sessionStorage.getItem('ssg-curtain'))document.documentElement.classList.add('curtain-skip')}catch(e){}</script>
 </head>
-<body>
+<body class="header-light">
+  <div class="curtain" aria-hidden="true">
+    <picture>
+      <source srcset="assets/img/logo.webp" type="image/webp">
+      <img src="assets/img/logo.png" alt="">
+    </picture>
+  </div>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
@@ -37,97 +47,100 @@
     </div>
   </div>
 
-  <div class="hero-frame">
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Sandstorm Group — home">
-        <picture>
-          <source srcset="assets/img/logo-sm.webp" type="image/webp">
-          <img src="assets/img/logo-sm.png" alt="Sandstorm Group" width="200" height="168">
-        </picture>
-      </a>
-      <nav class="nav-desktop" aria-label="Primary">
-        <a href="index.html">Home</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Sandstorm Group home">
+      <picture>
+        <source srcset="assets/img/logo-sm.webp" type="image/webp">
+        <img src="assets/img/logo-sm.png" alt="Sandstorm Group" width="200" height="168">
+      </picture>
+    </a>
+    <nav class="nav-desktop" aria-label="Primary">
+      <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="categories.html">Categories</a>
         <a href="brands.html" aria-current="page">Brands</a>
         <a href="partner.html">Partner</a>
         <a href="news.html">News</a>
         <a href="contact.html">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <a class="btn btn--gold btn--sm" href="quote.html">Request a Quote</a>
-        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-          <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
-        </button>
-      </div>
-    </header>
-
-    <section class="page-hero">
-      <div class="hero-inner">
-        <p class="eyebrow">Featured brands</p>
-        <h1>The company <span class="accent-italic text-gold">we keep.</span></h1>
-        <p class="hero-sub">We represent a short list of quality brands — on purpose.</p>
-      </div>
-    </section>
-  </div>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn--gold btn--sm" href="quote.html">Request a Quote</a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
 
   <main id="main">
+    <section class="title-block">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Featured brands</p>
+        <h1 data-reveal>The company <span class="accent-italic text-gold">we keep.</span></h1>
+        <p class="title-sub" data-reveal>A short list, on purpose. Deep commitment beats a crowded shelf.</p>
+        <div class="title-meta" data-reveal="fade"><span>04 / Brands</span></div>
+      </div>
+    </section>
 
-    <section class="section">
-      <div class="container container--narrow" style="text-align:center">
-        <p class="eyebrow eyebrow--center" data-reveal>Selective by design</p>
-        <h2 data-reveal>Fewer brands. <span class="accent-italic text-gold">Deeper commitment.</span></h2>
-        <p class="lead" style="margin-inline:auto" data-reveal>We&rsquo;d rather grow ten brands brilliantly than list a hundred and grow none. Our founding partners are being onboarded now — their stories will be featured here as each range goes live.</p>
+    <section class="section--tight" style="padding-top: 0">
+      <div class="container">
+        <p class="statement" data-words>We would rather grow ten brands brilliantly than list a hundred and grow none. Our founding partners are being onboarded now.</p>
       </div>
     </section>
 
     <section class="section--tight">
       <div class="container">
-        <div class="grid-3" data-reveal-group>
-          <article class="card news-card">
-            <span class="badge">Onboarding</span>
-            <p class="news-date">Announcement soon</p>
-            <h3>Founding partner &mdash; Home &amp; Living</h3>
-            <p>Our first home &amp; living range is in final onboarding. Watch this space — or follow us on Facebook for the reveal.</p>
-          </article>
-          <article class="card news-card">
-            <span class="badge">Onboarding</span>
-            <p class="news-date">Announcement soon</p>
-            <h3>Founding partner &mdash; Outdoor</h3>
-            <p>Built for the elements and tested on home soil. Our outdoor partner announcement is around the corner.</p>
-          </article>
-          <article class="card news-card" style="background:var(--carbon); border-color:rgba(201,168,76,.3)">
-            <span class="badge">Your brand here</span>
-            <p class="news-date" style="color:var(--gold-light)">Open invitation</p>
-            <h3 style="color:var(--on-dark)">This spot is reserved for you</h3>
-            <p style="color:var(--on-dark-soft)">If you make a quality product and want it marketed and sold properly, this page is where your brand belongs.</p>
-          </article>
+        <p class="sec-label" data-reveal><span class="n">01</span> The shortlist</p>
+        <div class="line-rows">
+      <div class="line-row" data-reveal>
+        <span class="row-idx">01</span>
+        <span class="row-title">Home &amp; Living partner <span class="tag tag--ghost">Announcing soon</span></span>
+        <p class="row-text">Final onboarding under way. The reveal lands here and on our Facebook page first.</p>
+        
+      </div>
+      <div class="line-row" data-reveal>
+        <span class="row-idx">02</span>
+        <span class="row-title">Outdoor partner <span class="tag tag--ghost">Announcing soon</span></span>
+        <p class="row-text">Built for the elements, tested on home soil. Nearly ready to show you.</p>
+        
+      </div>
+      <div class="line-row" data-reveal>
+        <span class="row-idx">03</span>
+        <span class="row-title">Personal care partner <span class="tag tag--ghost">In talks</span></span>
+        <p class="row-text">In conversation. We do not rush names onto this page.</p>
+        
+      </div>
         </div>
       </div>
     </section>
 
+    <a class="outline-cta" href="partner.html" data-reveal="fade">
+      <span class="big">YOUR BRAND<br>HERE.</span>
+      <span class="small">Become a partner <svg class="btn-arrow" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
     <section class="section">
       <div class="container">
+        <p class="sec-label" data-reveal><span class="n">02</span> Our bar</p>
         <div class="grid-2">
           <div class="split-card split-card--light" data-reveal="left">
             <p class="eyebrow">What we look for</p>
-            <h3>Our bar for partnership</h3>
+            <h3>Four things. No exceptions.</h3>
             <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Genuine quality — products we&rsquo;d happily use ourselves</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Reliable supply — you can make it, we can sell it</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Fair pricing — room for value on both sides</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pride in the product — because we&rsquo;ll represent it like our own</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Genuine quality. We test products ourselves first.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Reliable supply. If you can make it, we can sell it.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Fair pricing with room for value on both sides.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pride in the product. We represent it like our own.</li>
             </ul>
-            <a class="btn btn--dark" href="partner.html">See how partnership works <svg class="btn-arrow" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--dark" href="partner.html">How partnership works <svg class="btn-arrow" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
           <div class="split-card split-card--dark on-dark" data-reveal="right">
-            <p class="eyebrow">Why brands choose us</p>
-            <h3>Marketing muscle, zero overhead</h3>
+            <p class="eyebrow">What you get</p>
+            <h3>Muscle without overhead</h3>
             <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A full sales &amp; marketing team from day one</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Commission-based — we earn only when you sell</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A full sales and marketing team from day one</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Commission only. We earn when you sell.</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One trusted storefront and voice for your products</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Direct, personal communication — always</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Direct, personal communication. Always.</li>
             </ul>
             <a class="btn btn--gold" href="partner.html">Become a Partner <svg class="btn-arrow" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
@@ -137,10 +150,10 @@
 
     <section class="section--tight">
       <div class="container">
-        <div class="cta-band" data-reveal="scale">
+        <div class="cta-band grain" data-reveal="scale">
           <p class="eyebrow eyebrow--center">Let&rsquo;s talk</p>
           <h2>Ready to grow <span class="accent-italic text-gold">your brand?</span></h2>
-          <p class="lead">One conversation is all it takes to find out what Sandstorm Group can do for your products.</p>
+          <p class="lead">One WhatsApp message. That is how every partnership here starts.</p>
           <div class="hero-ctas">
             <a class="btn btn--gold" href="partner.html">Become a Partner</a>
             <a class="btn btn--ghost-dark" href="https://wa.me/27629943927" target="_blank" rel="noopener">Chat on WhatsApp</a>
@@ -156,7 +169,7 @@
         <source srcset="assets/img/logo.webp" type="image/webp">
         <img src="assets/img/logo.png" alt="Sandstorm Group" width="560" height="471" loading="lazy">
       </picture>
-      <p class="footer-tag">Sandstorm Group grows quality brands through strategic marketing, sales and trusted partnerships.</p>
+      <p class="footer-tag">We grow good products into trusted names through marketing, sales and real partnerships.</p>
     </div>
 
     <nav class="footer-nav" aria-label="Footer">
@@ -170,9 +183,9 @@
     </nav>
 
     <div class="footer-contact">
-      <span>Sales — <a href="mailto:sales@sandstormgroup.co.za">sales@sandstormgroup.co.za</a></span>
-      <span>Info — <a href="mailto:info@sandstormgroup.co.za">info@sandstormgroup.co.za</a></span>
-      <span>WhatsApp — <a href="https://wa.me/27629943927" target="_blank" rel="noopener">+27 62 994 3927</a></span>
+      <span>Sales · <a href="mailto:sales@sandstormgroup.co.za">sales@sandstormgroup.co.za</a></span>
+      <span>Info · <a href="mailto:info@sandstormgroup.co.za">info@sandstormgroup.co.za</a></span>
+      <span>WhatsApp · <a href="https://wa.me/27629943927" target="_blank" rel="noopener">+27 62 994 3927</a></span>
     </div>
 
     <div class="footer-social">
@@ -185,7 +198,7 @@
       </a>
     </div>
 
-    <p class="footer-partnerline">A proudly South African sales &amp; marketing partnership — <span class="accent-italic">Precision in Every Grain</span> — Est. 2024</p>
+    <p class="footer-partnerline">A proudly South African sales and marketing partnership. <span class="accent-italic">Precision in Every Grain.</span> Est. 2024.</p>
 
     <div class="footer-bottom">
       <span>&copy; <span data-year>2026</span> Sandstorm Group. All rights reserved.</span>

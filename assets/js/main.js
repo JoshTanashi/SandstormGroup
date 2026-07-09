@@ -6,6 +6,55 @@
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var hasGSAP = typeof window.gsap !== "undefined";
+  if (reduceMotion) document.documentElement.classList.add("rm");
+
+  /* ---------------- Load curtain (once per session) ---------------- */
+  var curtain = document.querySelector(".curtain");
+  if (curtain) {
+    try {
+      if (sessionStorage.getItem("ssg-curtain")) {
+        curtain.remove();
+      } else {
+        sessionStorage.setItem("ssg-curtain", "1");
+        document.body.classList.add("is-loaded");
+        window.setTimeout(function () { curtain.remove(); }, 1600);
+      }
+    } catch (e) {
+      curtain.remove();
+    }
+  }
+
+  /* ---------------- Scroll progress hairline ---------------- */
+  var progress = document.querySelector(".scroll-progress");
+  if (progress && !reduceMotion) {
+    var ticking = false;
+    var updateProgress = function () {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = "scaleX(" + (max > 0 ? window.scrollY / max : 0) + ")";
+      ticking = false;
+    };
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(updateProgress); }
+    }, { passive: true });
+    updateProgress();
+  }
+
+  /* ---------------- Page transition fade ---------------- */
+  if (!reduceMotion) {
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest ? e.target.closest("a") : null;
+      if (!a || a.target === "_blank" || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var href = a.getAttribute("href") || "";
+      if (!/\.html$/.test(href.split("#")[0]) || href.indexOf("#") === 0) return;
+      if (a.origin && a.origin !== location.origin) return;
+      e.preventDefault();
+      document.body.classList.add("page-exit");
+      window.setTimeout(function () { location.href = href; }, 190);
+    });
+    window.addEventListener("pageshow", function () {
+      document.body.classList.remove("page-exit");
+    });
+  }
 
   /* ---------------- Header: fixed pill on scroll ---------------- */
   var header = document.querySelector(".site-header");
@@ -153,6 +202,78 @@
         y: 26, autoAlpha: 0, duration: 0.9, stagger: 0.12, ease: "power3.out", delay: 0.2
       });
     }
+  }
+
+  /* ---------------- Pinned manifesto ---------------- */
+  var manifesto = document.querySelector(".manifesto");
+  if (manifesto && hasGSAP && window.ScrollTrigger && !reduceMotion) {
+    manifesto.classList.add("is-pinned");
+    var phrases = manifesto.querySelectorAll(".mani-phrase");
+    var ticks = manifesto.querySelectorAll(".mani-progress i");
+    var setTick = function (n) {
+      ticks.forEach(function (t, i) { t.classList.toggle("on", i <= n); });
+    };
+    var mtl = gsap.timeline({
+      scrollTrigger: {
+        trigger: manifesto,
+        start: "top top",
+        end: "+=" + phrases.length * 85 + "%",
+        pin: true,
+        scrub: 0.6,
+        onUpdate: function (st) {
+          setTick(Math.min(phrases.length - 1, Math.floor(st.progress * phrases.length)));
+        }
+      }
+    });
+    phrases.forEach(function (ph, i) {
+      mtl.fromTo(ph, { autoAlpha: 0, y: 44, scale: 0.97 }, { autoAlpha: 1, y: 0, scale: 1, duration: 1, ease: "power2.out" }, i * 2);
+      if (i < phrases.length - 1) {
+        mtl.to(ph, { autoAlpha: 0, y: -44, duration: 1, ease: "power2.in" }, i * 2 + 1.35);
+      }
+    });
+  }
+
+  /* ---------------- Scrubbed word reveal ---------------- */
+  document.querySelectorAll("[data-words]").forEach(function (el) {
+    var words = el.textContent.trim().split(/\s+/);
+    el.textContent = "";
+    words.forEach(function (w, i) {
+      var s = document.createElement("span");
+      s.className = "w";
+      s.textContent = w;
+      el.appendChild(s);
+      if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
+    });
+    if (hasGSAP && window.ScrollTrigger && !reduceMotion) {
+      gsap.to(el.querySelectorAll(".w"), {
+        opacity: 1,
+        stagger: 0.06,
+        ease: "none",
+        scrollTrigger: { trigger: el, start: "top 82%", end: "top 38%", scrub: 0.4 }
+      });
+    }
+  });
+
+  /* ---------------- Image zoom on scroll ---------------- */
+  if (hasGSAP && window.ScrollTrigger && !reduceMotion) {
+    document.querySelectorAll("[data-zoom] img").forEach(function (img) {
+      gsap.fromTo(img, { scale: 1.14 }, {
+        scale: 1,
+        ease: "none",
+        scrollTrigger: { trigger: img.closest("[data-zoom]"), start: "top 95%", end: "bottom 20%", scrub: 0.5 }
+      });
+    });
+
+    /* sand band parallax */
+    document.querySelectorAll(".sand-band img").forEach(function (img) {
+      gsap.fromTo(img, { yPercent: -9 }, {
+        yPercent: 9,
+        ease: "none",
+        scrollTrigger: { trigger: img.closest(".sand-band"), start: "top bottom", end: "bottom top", scrub: true }
+      });
+    });
+
+    window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
 
   /* ---------------- Counters ---------------- */
