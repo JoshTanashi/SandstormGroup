@@ -134,6 +134,26 @@
     }
   }
 
+  /* ---------------- Category / story videos: lazy, in-view only ---------------- */
+  var lazyVideos = document.querySelectorAll("video[data-autoplay]");
+  if (lazyVideos.length && !reduceMotion && "IntersectionObserver" in window) {
+    var vio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var v = entry.target;
+        if (entry.isIntersecting) {
+          var p = v.play();
+          if (p && p.then) p.then(function () { v.classList.add("is-playing"); }).catch(function () {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.25 });
+    lazyVideos.forEach(function (v) {
+      v.addEventListener("playing", function () { v.classList.add("is-playing"); });
+      vio.observe(v);
+    });
+  }
+
   /* ---------------- Scroll reveals ---------------- */
   var revealEls = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
 
